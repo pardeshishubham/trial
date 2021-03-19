@@ -1,7 +1,7 @@
 # Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
 # More GitHub Actions for Azure: https://github.com/Azure/actions
 
-name: Build and deploy Python app to Azure Web App - autofarm-worker
+name: Build and deploy Python app to Azure Web App - autofarm-sense
 
 on:
   push:
@@ -25,7 +25,9 @@ jobs:
       run: |
         python -m venv env
         .\env\Scripts\activate
-        pip install -r requirements.txt
+        python -m pip install -r requirements.txt
+        python -m pip install mysql-connector-python
+        python -m pip install --upgrade pip
 
     - name: Zip the application files
       run: Compress-Archive .\* app.zip
@@ -33,7 +35,7 @@ jobs:
     - name: 'Deploy to Azure Web App'
       uses: azure/webapps-deploy@v2
       with:
-        app-name: 'autofarm-worker'
+        app-name: 'autofarm-sense'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_8d81d242b4774fd89a849e6cd86e6c01 }}
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_54fbf1c7d1564edd971f0f44c44f46cd }}
         package: '.\app.zip'

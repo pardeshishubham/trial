@@ -99,7 +99,7 @@
                 "sha256:d9ed28030797c00f4bc43c86bf819266c76a5ea61d006cd4078a93ebf7da6bfd",
                 "sha256:e603aa7bb52e4e8ed4119a58a03b60323918467ef209e6ff9db3ac382e5cf2c6"
             ],
-            "version": "==2.6.1"
+            "version": "==3.2"
         },
         "flask": {
             "hashes": [
